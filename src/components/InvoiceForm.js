@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -44,6 +45,7 @@ class InvoiceForm extends React.Component {
     this.editField = this.editField.bind(this);
   }
   componentDidMount(prevProps) {
+    console.log(this.props.counter)
     this.handleCalculateTotal()
   }
   handleRowDel(items) {
@@ -127,9 +129,9 @@ class InvoiceForm extends React.Component {
         <Col md={8} lg={9}>
           <Card className="p-4 p-xl-5 my-3 my-xl-4">
             <div className="d-flex flex-row align-items-start justify-content-between mb-3">
-              <div class="d-flex flex-column">
+              <div className="d-flex flex-column">
                 <div className="d-flex flex-column">
-                  <div class="mb-2">
+                  <div className="mb-2">
                     <span className="fw-bold">Current&nbsp;Date:&nbsp;</span>
                     <span className="current-date">{new Date().toLocaleDateString()}</span>
                   </div>
@@ -152,7 +154,16 @@ class InvoiceForm extends React.Component {
             <Row className="mb-5">
               <Col>
                 <Form.Label className="fw-bold">Bill to:</Form.Label>
-                <Form.Control placeholder={"Who is this invoice to?"} rows={3} value={this.state.billTo} type="text" name="billTo" className="my-2" onChange={(event) => this.editField(event)} autoComplete="name" required="required"/>
+                <Form.Control 
+                placeholder={"Who is this invoice to?"} 
+                rows={3} value={this.state.billTo} 
+                type="text" 
+                name="billTo" 
+                className="my-2" 
+                onChange={(event) => this.editField(event)} 
+                autoComplete="name" 
+                required="required"/>
+                
                 <Form.Control placeholder={"Email address"} value={this.state.billToEmail} type="email" name="billToEmail" className="my-2" onChange={(event) => this.editField(event)} autoComplete="email" required="required"/>
                 <Form.Control placeholder={"Billing address"} value={this.state.billToAddress} type="text" name="billToAddress" className="my-2" autoComplete="address" onChange={(event) => this.editField(event)} required="required"/>
               </Col>
@@ -245,4 +256,17 @@ class InvoiceForm extends React.Component {
   }
 }
 
-export default InvoiceForm;
+//export default InvoiceForm;
+
+
+const mapStateToProps = (state) => ({
+  counter: state.counter 
+  //  Use 'counter: state.counter.counter' and replace the above line if you are using combineReducers to ensure that 'counter' matches the correct key in your store.
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch({ type: "INCREMENT" }),
+  decrement: () => dispatch({ type: "DECREMENT" })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(InvoiceForm);
