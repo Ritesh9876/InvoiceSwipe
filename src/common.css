@@ -1,0 +1,287 @@
+
+/* text fonts classes starts */
+.font_12_400{
+    color:black;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    line-height: 20px;
+}
+
+.font_14_400{
+    color:black;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    line-height: 20px;
+}
+
+.font_14_600{
+    color:black;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    line-height: 20px;
+}
+
+.font_16_600{
+    color:black;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    line-height: 20px;
+}
+.font_20_600{
+    color:black;
+    font-size: 20px;
+    font-weight: 600px;
+    line-height: 22px;
+    font-family: "Poppins", sans-serif;
+}
+.font_24_600{
+    color:black;
+    font-size: 24px;
+    font-weight: 600px;
+    line-height: 22px;
+    font-family: "Poppins", sans-serif;
+}
+/* text fonts classes ends */
+
+
+
+/* border classes starts*/
+.border-ef{
+    border:2px solid #dbdfea;
+}
+/* border classes ends */
+
+/* border radius classes  */
+.br-10px{
+border-radius: 10px;
+}
+.br-round{
+    border-radius: 50%;
+}
+/* border radius classes */
+
+/* background color classes starts */
+.bg-76{
+    background-color: #76dddd;
+}
+.bg-12{
+    background-color: #121212 !important;
+}
+.bg-1d{
+    background-color: "#1d1e20";
+}
+.bg-28{
+    background-color: #28292d;
+}
+/* background color classes ends */
+
+
+/* width classes starts */
+.w-10px{
+    width:10px !important;
+}
+
+.w-40{
+    width:40% !important;
+}
+
+.w-60{
+    width:60% !important;
+}
+.w-100{
+    width:100% !important;
+}
+/* width classes ends */
+
+/* height classes starts */
+.h-10px{
+    height:10px !important;
+}
+.h-100{
+    height:100% !important;
+}
+
+.h-100vh{
+    height:100vh !important;
+}
+/* height classes ends */
+
+/* padding left classes starts */
+.pl-10{
+    padding-left: 10px !important;
+}
+.pl-20{
+    padding-left: 20px !important;
+}
+.pl-30{
+    padding-left: 30px !important;
+}
+.pl-40{
+    padding-left: 40px !important;
+}
+/* padding left classes ends */
+
+
+/* padding top classes starts */
+.pt-10{
+    padding-top:10px !important;
+}
+.pt-20{
+    padding-top:20px !important;
+}
+.pt-30{
+    padding-top:30px !important;
+}
+/* padding top classes ends */
+
+
+
+/* padding right classes starts */
+.pr-10{
+    padding-right: 10px !important;
+}
+.pr-20{
+    padding-right: 20px !important;
+}
+.pr-30{
+    padding-right: 30px !important;
+}
+.pr-40{
+    padding-right: 40px !important;
+}
+/* padding right classes ends */
+
+
+/* padding bottom classes starts */
+.pb-10{
+    padding-bottom: 10px !important;
+}
+.pb-20{
+    padding-bottom: 20px !important;
+}
+.pb-30{
+    padding-bottom: 30px !important;
+}
+/* padding bottom classes ends */
+
+
+/* margin left classes starts */
+
+.ml-10{
+    margin-left:10px !important;
+}
+
+.ml-20{
+    margin-left:20px !important;
+}
+
+.ml-30{
+    margin-left:30px !important;
+}
+
+.ml-50{
+    margin-left:50px !important;
+}
+
+.ml-70{
+    margin-left:70px !important;
+}
+/* margin left classes ends */
+
+
+/* margin top classes starts */
+.mt-2px {
+    margin-top:2px !important;
+}
+.mt-6 {
+    margin-top:6px !important;
+}
+.mt-10 {
+    margin-top:10px !important;
+}
+
+.mt-20 {
+    margin-top:20px !important;
+}
+
+.mt-30 {
+    margin-top:30px !important;
+}
+
+.mt-40 {
+    margin-top:40px !important;
+}
+
+.mt-50{
+    margin-top:50px !important;
+}
+.mt-100{
+    margin-top:100px !important;
+}
+/* margin top classes ends */
+
+/* margin right classes starts */
+.mr-10{
+    margin-right:10px !important;
+}
+
+.mr-20{
+    margin-right:20px !important;
+}
+
+.mr-30{
+    margin-right:30px !important;
+}
+
+.mr-50{
+    margin-right:50px !important;
+}
+/* margin right classes starts */
+
+/* margin bottom classes starts */
+.mb-10{
+    margin-bottom: 10px !important;
+}
+
+.mb-20{
+    margin-bottom: 20px !important;
+}
+
+.mb-30{
+    margin-bottom: 30px !important;
+}
+
+/* margin bottom classes ends */
+
+/* text colors classes starts */
+
+
+/* text color classes ends */
+
+.pointer-arrow{
+    cursor: pointer;
+}
+
+.orange-chip{
+    background-color: #fef9e6;
+    color:#f9c007;
+    padding: 8px 14px !important;
+    border-radius:10px ;
+}
+
+.green-chip{
+    background-color: #f6fcff;
+    color:#43caff;
+    padding: 8px 14px !important;
+    border-radius:10px ;
+}
+.purple-chip{
+    background-color: #f0effe;
+    color:#a29df8;
+    padding: 8px 14px !important;
+    border-radius:10px ;
+}
