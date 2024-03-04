@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import { connect} from "react-redux";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,7 +12,7 @@ import useQuery from '../../Utils/query';
 import InvoiceItem from './invoiceItem';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-function EditInvoice({editInvoice,invoiceList}) {
+function EditInvoice({editInvoice,invoiceList,addInvoice}) {
     const navigate = useNavigate();
 
    // const [items,setItems] = useState([])
@@ -39,8 +39,9 @@ function EditInvoice({editInvoice,invoiceList}) {
     })
     const query= useQuery()
     const invoiceId=query.get("id");
-
+    const isAdd= query.get("add")
     useEffect(() =>{
+        console.log("is add is ", isAdd)
         if(invoiceId){
            [...invoiceList].forEach((invoice) =>{
             if(invoice.id===invoiceId)
@@ -131,18 +132,12 @@ function EditInvoice({editInvoice,invoiceList}) {
             [event.target.name]: event.target.value
 
         }
-       // setInvoiceDetails(curr_invoiceDetails)
-        handleCalculateTotal(curr_invoiceDetails); // may require useEffect
+        handleCalculateTotal(curr_invoiceDetails); 
     };
 
-    useEffect(() =>{
-        //console.log("invoice details ",invoiceDetails)
-        //handleCalculateTotal();
-    },[invoiceDetails])
+   
 
     const onCurrencyChange = (selectedOption) => {
-        console.log("selected currency option ",selectedOption)
-     //   this.setState(selectedOption);
      let current_details= {...invoiceDetails}
      current_details={
         ...current_details,
@@ -153,7 +148,10 @@ function EditInvoice({editInvoice,invoiceList}) {
 
     const openModal = (event) => {
         event.preventDefault()
+        if(!isAdd)
         editInvoice({...invoiceDetails},invoiceId)
+        else 
+        addInvoice({...invoiceDetails,id:( Math.floor(Math.random() * 999999)).toString(36)})
         navigate("/")
     };
     const closeModal = (event) => {
@@ -297,9 +295,23 @@ function EditInvoice({editInvoice,invoiceList}) {
             </Col>
             <Col md={4} lg={3}>
                 <div className="sticky-top pt-md-3 pt-xl-4">
-                    <Button variant="primary" type="submit" className="d-block w-100">Save Changes</Button>
+                    {!isAdd ?
+                    <>
+                            <Button variant="primary" type="submit" className="d-block w-100">Save Changes</Button>
+
+                            <Link  to={`/edit?id=${invoiceDetails.id}&add=true`}>
+                            <Button variant="primary"  className="d-block w-100 mt-10">Copy Invoice</Button>
+                            </Link>
+                            </>
+                            :
+                            <>
+                            <Button variant="primary" type="submit" className="d-block w-100">Add Invoice</Button>
+
+                            </>
+                }
+
                     {/* <InvoiceModal showModal={invoiceDetails.isOpen} closeModal={closeModal} info={invoiceDetails} items={invoiceDetails.items} currency={invoiceDetails.currency} subTotal={invoiceDetails.subTotal} taxAmmount={invoiceDetails.taxAmmount} discountAmmount={invoiceDetails.discountAmmount} total={invoiceDetails.total} /> */}
-                    <Form.Group className="mb-3">
+                    <Form.Group className="mb-3 mt-10">
                         <Form.Label className="fw-bold">Currency:</Form.Label>
                         <Form.Select onChange={event => onCurrencyChange({ currency: event.target.value })} className="btn btn-light my-1" aria-label="Change Currency">
                             <option value="$">USD (United States Dollar)</option>
@@ -350,7 +362,9 @@ const mapStateToProps = (state) => ({
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    editInvoice : (params) => dispatch({type: "EDIT_INVOICE",payload:{...params}})
+    editInvoice : (params) => dispatch({type: "EDIT_INVOICE",payload:{...params}}),
+    addInvoice : (params) => dispatch({type: "ADD_INVOICE",payload:{...params}})
+
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(EditInvoice);

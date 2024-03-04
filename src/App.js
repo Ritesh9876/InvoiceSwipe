@@ -22,7 +22,7 @@ class App extends Component {
         <Routes>
           <Route exact path="/" element={<DisplayInvoices/>}/>
           <Route exact path="/view" element={<InvoiceDetails/>}/>
-          <Route exact path="/add" element={<InvoiceForm/>}/>
+          {/* <Route exact path="/add" element={<InvoiceForm/>}/> */}
           <Route exact path="/edit" element = {<EditInvoice/>}/>
         </Routes>
       </Router>

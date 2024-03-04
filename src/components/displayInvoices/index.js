@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './displayInvoices.css'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
+import Button from 'react-bootstrap/Button';
 
 function DisplayInvoices({invoiceList}) {
 //	const {allInvoices}= UseInVoiceStore()
@@ -9,8 +10,13 @@ function DisplayInvoices({invoiceList}) {
 	
 
 	return (
-		<div className="invoiceTable-container d-flex justify-content-center mt-50">
 			
+		<div className="invoiceTable-container d-flex flex-column align-items-center justify-content-center mt-50">
+			<div className="d-flex invoiceTable-header ml-10">
+			<Link  to={`/edit?add=true`}>
+			<Button className="fw-bold">New Invoice</Button>
+			</Link>
+			</div>
 			<table className="invoiceTable-table">
 				<thead className="invoiceTable-table-head">
 					<tr className="invoice-table-row">
@@ -22,9 +28,9 @@ function DisplayInvoices({invoiceList}) {
 						<th className="font_16_600 d-flex justify-content-center" >
 							<p>View</p>
 						</th>
-						<th className="font_16_600 d-flex justify-content-center" >
+						{/* <th className="font_16_600 d-flex justify-content-center" >
 							<p>Edit</p>
-						</th>
+						</th> */}
 					</tr>
 				</thead>
 				<tbody >
@@ -75,7 +81,7 @@ function DisplayInvoices({invoiceList}) {
 									</Link>
 									</td>
 
-									<td className="font_14_400 d-flex justify-content-center align-items-center">
+									{/* <td className="font_14_400 d-flex justify-content-center align-items-center">
 									<Link  to={`/edit?id=${currentInvoice.id}`}>
 									<button
 									className="btn btn-primary"
@@ -84,7 +90,7 @@ function DisplayInvoices({invoiceList}) {
 										Edit
 									</button>
 									</Link>
-									</td>
+									</td> */}
 								</tr>
 							)
 						})

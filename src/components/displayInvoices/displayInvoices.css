@@ -11,6 +11,9 @@
     
 	overflow: hidden;
 }
+.invoiceTable-header{
+    width:80%;
+}
 
 
 .invoice-table-row-title{
@@ -20,7 +23,7 @@
 .invoice-table-row{
     display:grid;
     padding:1rem 1.5rem;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .invoice-table-row td{
     margin-left:30px;
