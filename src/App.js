@@ -15,7 +15,6 @@ class App extends Component {
     <div 
     >
       <Provider store={store}>
-
       <Router>
         <Routes>
           <Route exact path="/" element={<DisplayInvoices/>}/>

@@ -265,23 +265,3 @@ border-radius: 10px;
 .pointer-arrow{
     cursor: pointer;
 }
-
-.orange-chip{
-    background-color: #fef9e6;
-    color:#f9c007;
-    padding: 8px 14px !important;
-    border-radius:10px ;
-}
-
-.green-chip{
-    background-color: #f6fcff;
-    color:#43caff;
-    padding: 8px 14px !important;
-    border-radius:10px ;
-}
-.purple-chip{
-    background-color: #f0effe;
-    color:#a29df8;
-    padding: 8px 14px !important;
-    border-radius:10px ;
-}
