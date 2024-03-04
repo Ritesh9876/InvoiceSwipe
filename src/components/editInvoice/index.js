@@ -47,7 +47,7 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
             }
            })
         }
-    },[invoiceId])
+    },[invoiceId,invoiceList,isAdd])
 
     const handleRowDel = (current_items) => {
         let temp_details = {...invoiceDetails}
@@ -74,7 +74,7 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
         let curr_items =[...curr_invoiceDetails.items]
         
         let subTotal = 0;
-        curr_items.map(function (temp_items) {
+        curr_items.forEach(function (temp_items) {
             subTotal = parseFloat(subTotal + (parseFloat(temp_items.price).toFixed(2) * parseInt(temp_items.quantity))).toFixed(2)
         });
         let current_details= {...curr_invoiceDetails} 
@@ -147,15 +147,15 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
         addInvoice({...invoiceDetails,id:( Math.floor(Math.random() * 999999)).toString(36)})
         navigate("/")
     };
-    const closeModal = (event) => {
-        let curr_invoiceDetails= {...invoiceDetails}
-        curr_invoiceDetails={
-            ...curr_invoiceDetails,
-            isOpen:true
+    // const closeModal = (event) => {
+    //     let curr_invoiceDetails= {...invoiceDetails}
+    //     curr_invoiceDetails={
+    //         ...curr_invoiceDetails,
+    //         isOpen:true
 
-        }
-        setInvoiceDetails(curr_invoiceDetails)
-    };
+    //     }
+    //     setInvoiceDetails(curr_invoiceDetails)
+    // };
 
     return (<Form onSubmit={openModal}>
         <Row>

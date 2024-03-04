@@ -1,8 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import { BiTrash } from "react-icons/bi";
 
 const ItemList = (props) => {
     var itemTable = props.items?.map(function (item) {

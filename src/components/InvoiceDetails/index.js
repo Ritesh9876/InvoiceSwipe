@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import useQuery from '../../Utils/query';
 import ItemList from './ItemList';
@@ -28,7 +27,7 @@ function InvoiceDetails({invoiceList,deleteInvoice}) {
              }
             })
          }
-    },[invoiceId])
+    },[invoiceId,invoiceList])
 
     const handleInvoiceDelete = () =>{
         deleteInvoice({id:invoiceId})
