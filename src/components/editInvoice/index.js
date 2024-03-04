@@ -45,7 +45,7 @@ function EditInvoice({editInvoice,invoiceList}) {
            [...invoiceList].forEach((invoice) =>{
             if(invoice.id===invoiceId)
             {
-                setInvoiceDetails({...invoice,invoice_date: new Date()})
+                setInvoiceDetails({...invoice,invoice_date: new Date().toLocaleDateString()})
             }
            })
         }

@@ -1,0 +1,46 @@
+
+.invoiceTable-container{
+    width:100%;
+}
+/* Responsive Table Style */
+.invoiceTable-table {
+    width:80%;
+	background-color: white;
+	border-radius: 10px;
+	margin: 2rem 0;
+    
+	overflow: hidden;
+}
+
+
+.invoice-table-row-title{
+    display:none;
+
+}
+.invoice-table-row{
+    display:grid;
+    padding:1rem 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.invoice-table-row td{
+    margin-left:30px;
+}
+.invoice-table-row th{
+    margin-left:30px;
+}
+
+@media (max-width: 600px) {
+    .invoice-table-row{
+        width:100%;
+        grid-template-columns: 1fr;
+    }
+    .invoice-table-row-title{
+        display:block;
+    }
+    .invoice-table-row td p {
+        margin-top:10px !important;
+    }
+    .invoiceTable-table-head{
+        display:none;
+    }
+  }

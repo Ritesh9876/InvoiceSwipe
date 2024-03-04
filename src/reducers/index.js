@@ -85,7 +85,7 @@ const initialState = {
       case "ADD_INVOICE":
         return { ...state, invoiceList: state.invoiceList.concat(action.payload) };
       case "EDIT_INVOICE":
-        console.log(action)
+        
         return { ...state, 
             invoiceList: 
             state.invoiceList.map((invoice) => 
@@ -93,7 +93,7 @@ const initialState = {
             action.payload : invoice) 
         };
       case "DELETE_INVOICE":
-        return { ...state,invoiceList: state.invoiceList.filter((invoice) => invoice.id !== action.payload)}
+        return { ...state,invoiceList: state.invoiceList.filter((invoice) => invoice.id !== action.payload.id)}
       default:
         return state;
     }

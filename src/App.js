@@ -8,6 +8,7 @@ import store from './reducers/store';
 import { Provider } from 'react-redux';
 import DisplayInvoices from './components/displayInvoices';
 import EditInvoice from './components/editInvoice';
+import InvoiceDetails from './components/InvoiceDetails';
 
 class App extends Component {
   render() {
@@ -20,7 +21,7 @@ class App extends Component {
       <Router>
         <Routes>
           <Route exact path="/" element={<DisplayInvoices/>}/>
-          <Route exact path="/view" element={<>hello invoice</>}/>
+          <Route exact path="/view" element={<InvoiceDetails/>}/>
           <Route exact path="/add" element={<InvoiceForm/>}/>
           <Route exact path="/edit" element = {<EditInvoice/>}/>
         </Routes>

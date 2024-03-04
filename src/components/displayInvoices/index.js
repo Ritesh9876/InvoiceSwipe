@@ -10,12 +10,7 @@ function DisplayInvoices({invoiceList}) {
 
 	return (
 		<div className="invoiceTable-container d-flex justify-content-center mt-50">
-			{/* <InvoiceDetailsDrawer
-				open={invoiceDetailsDrawerOpen}
-				toggleDrawer={handleInvoiceDetailsDrawer}
-				invoiceDetailsDrawerData={invoiceList[activeInvoiceIndex]}
-				index={activeInvoiceIndex}
-			/> */}
+			
 			<table className="invoiceTable-table">
 				<thead className="invoiceTable-table-head">
 					<tr className="invoice-table-row">
@@ -24,7 +19,6 @@ function DisplayInvoices({invoiceList}) {
 						<th className="font_16_600 d-flex justify-content-left">Due Date</th>
 						<th className="font_16_600 d-flex justify-content-left" >Client</th>
 						<th className="font_16_600 d-flex justify-content-left">Price</th>
-						{/* <th className="font_16_600 d-flex justify-content-left" >Status</th> */}
 						<th className="font_16_600 d-flex justify-content-center" >
 							<p>View</p>
 						</th>
@@ -54,7 +48,7 @@ function DisplayInvoices({invoiceList}) {
 									</td>
 									<td className="d-flex justify-content-start align-items-center">
 										<p className="font_14_400">
-											{/* {currentInvoice.date["$D"]}/{currentInvoice.date["$M"]}/{currentInvoice.date["$y"]} */}
+										{currentInvoice.due_date}
 										</p>
 									</td>
 									<td className="d-flex justify-content-start align-items-center">
