@@ -7,15 +7,12 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-// import InvoiceModal from './InvoiceModal';
 import useQuery from '../../Utils/query';
 import InvoiceItem from './invoiceItem';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 function EditInvoice({editInvoice,invoiceList,addInvoice}) {
     const navigate = useNavigate();
-
-   // const [items,setItems] = useState([])
     const [invoiceDetails,setInvoiceDetails]=useState({
             id:"",
             due_date: "",
@@ -71,14 +68,11 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
             quantity: 1
          }
          temp_details.items.push(items)
-        // const new_items= [...items]
-        // new_items.push(items);
-        // setItems(new_items)
         setInvoiceDetails(temp_details)
     }
     const handleCalculateTotal = (curr_invoiceDetails) => {
         let curr_items =[...curr_invoiceDetails.items]
-        // [...items];
+        
         let subTotal = 0;
         curr_items.map(function (temp_items) {
             subTotal = parseFloat(subTotal + (parseFloat(temp_items.price).toFixed(2) * parseInt(temp_items.quantity))).toFixed(2)
@@ -104,11 +98,10 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
             value: evt.target.value
         };
         console.log("this is item ",item)
-      //  var items = invoiceDetails.items.slice();
+      
       const temp_details= {...invoiceDetails}
 
         const curr_items= [...temp_details.items];
-         //curr_items= curr_items.slice()
 
         let newItems = curr_items.map(function (temp_items) {
             let new_items = {...temp_items}
@@ -119,9 +112,9 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
             }
             return new_items;
         });
-       // console.log("new items ",newItems)
+      
         temp_details.items=[...newItems]
-       // this.setState({ items: newItems });
+       
         handleCalculateTotal(temp_details);
     };
     const editField = (event) => {
@@ -353,8 +346,6 @@ function EditInvoice({editInvoice,invoiceList,addInvoice}) {
         </Row>
     </Form>)
 }
-
-//export default EditInvoice
 
 
 const mapStateToProps = (state) => ({

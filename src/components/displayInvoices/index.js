@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
 function DisplayInvoices({invoiceList}) {
-//	const {allInvoices}= UseInVoiceStore()
-
-	
 
 	return (
 			
@@ -42,9 +39,7 @@ function DisplayInvoices({invoiceList}) {
 									className="invoice-table-row mt-20">
 									<td className="d-flex justify-content-start align-items-center">
 										<div 
-										//className="mr-10"
 										>
-											{/* <ArticleOutlinedIcon /> */}
 											{currentInvoice.invoice_number}
 										</div>
 									</td>
@@ -101,18 +96,12 @@ function DisplayInvoices({invoiceList}) {
 	)
 }
 
-//export default DisplayInvoices;
-
-
 
 const mapStateToProps = (state) => ({
     invoiceList: state.invoiceList
-    //  Use 'counter: state.counter.counter' and replace the above line if you are using combineReducers to ensure that 'counter' matches the correct key in your store.
   });
   
   const mapDispatchToProps = (dispatch) => ({
-    increment: () => dispatch({ type: "INCREMENT" }),
-    decrement: () => dispatch({ type: "DECREMENT" })
   });
   
   export default connect(mapStateToProps, mapDispatchToProps)(DisplayInvoices);
