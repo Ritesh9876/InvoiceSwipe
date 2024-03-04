@@ -37,9 +37,9 @@ class InvoiceModal extends React.Component {
           <div id="invoiceCapture">
             <div className="d-flex flex-row justify-content-between align-items-start bg-light w-100 p-4">
               <div className="w-100">
-                <h4 className="fw-bold my-2">{this.props.info.billFrom||'John Uberbacher'}</h4>
+                <h4 className="fw-bold my-2">{this.props.info.sender_name||'John Uberbacher'}</h4>
                 <h6 className="fw-bold text-secondary mb-1">
-                  Invoice #: {this.props.info.invoiceNumber||''}
+                  Invoice #: {this.props.info.invoice_number||''}
                 </h6>
               </div>
               <div className="text-end ms-4">
@@ -51,19 +51,19 @@ class InvoiceModal extends React.Component {
               <Row className="mb-4">
                 <Col md={4}>
                   <div className="fw-bold">Billed to:</div>
-                  <div>{this.props.info.billTo||''}</div>
-                  <div>{this.props.info.billToAddress||''}</div>
-                  <div>{this.props.info.billToEmail||''}</div>
+                  <div>{this.props.info.customer_name||''}</div>
+                  <div>{this.props.info.customer_address||''}</div>
+                  <div>{this.props.info.customer_email||''}</div>
                 </Col>
                 <Col md={4}>
                   <div className="fw-bold">Billed From:</div>
-                  <div>{this.props.info.billFrom||''}</div>
-                  <div>{this.props.info.billFromAddress||''}</div>
-                  <div>{this.props.info.billFromEmail||''}</div>
+                  <div>{this.props.info.sender_name||''}</div>
+                  <div>{this.props.info.sender_address||''}</div>
+                  <div>{this.props.info.sender_email||''}</div>
                 </Col>
                 <Col md={4}>
-                  <div className="fw-bold mt-2">Date Of Issue:</div>
-                  <div>{this.props.info.dateOfIssue||''}</div>
+                  <div className="fw-bold mt-2">Due Date:</div>
+                  <div>{this.props.info.due_date||''}</div>
                 </Col>
               </Row>
               <Table className="mb-0">
@@ -76,7 +76,7 @@ class InvoiceModal extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.items.map((item, i) => {
+                  {this.props.items?.map((item, i) => {
                     return (
                       <tr id={i} key={i}>
                         <td style={{width: '70px'}}>

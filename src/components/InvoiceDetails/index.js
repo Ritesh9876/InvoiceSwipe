@@ -9,12 +9,13 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import useQuery from '../../Utils/query';
 import ItemList from './ItemList';
-
+import InvoiceModal from '../InvoiceModal.js'
 
 
 function InvoiceDetails({invoiceList,deleteInvoice}) {
     const navigate = useNavigate();
     const [invoiceDetails, setInvoiceDetails] = useState([]);
+    const [isOpen,setIsOpen]=useState(false)
     const query= useQuery()
     const invoiceId=query.get("id");
 
@@ -33,6 +34,11 @@ function InvoiceDetails({invoiceList,deleteInvoice}) {
         deleteInvoice({id:invoiceId})
         navigate("/")
     }
+    const openModal = (event) => {
+        event.preventDefault()
+        setIsOpen(true)
+      };
+    const  closeModal = (event) => setIsOpen(false);
   return (
     <div>
         <Row>
@@ -120,13 +126,30 @@ function InvoiceDetails({invoiceList,deleteInvoice}) {
                 </Card>
             </Col>
             <Col md={4} lg={3}>
+            <InvoiceModal showModal={isOpen} 
+            closeModal={closeModal} 
+            info={invoiceDetails} 
+            items={invoiceDetails.items} 
+            currency={invoiceDetails.currency} 
+            subTotal={invoiceDetails.subTotal} 
+            taxAmmount={invoiceDetails.tax} 
+            discountAmmount={invoiceDetails.discount} 
+            total={invoiceDetails.total}/>
+
                 <div className="sticky-top pt-md-3 pt-xl-4">
+                    <Button
+                     variant="primary" className="d-block w-100"
+                    onClick={e => {openModal(e)}}
+                    >
+                            Download Invoice
+                    </Button>
                 <Link  to={`/edit?id=${invoiceDetails.id}`}>
-                    <Button variant="primary" className="d-block w-100">Edit Invoice</Button>
+                    <Button variant="primary" className="d-block w-100 mt-10">Edit Invoice</Button>
                     </Link>
                     <Button variant="primary"  
                     onClick={() =>{handleInvoiceDelete()}}
-                    className="btn-danger d-block w-100 mt-20">Delete Invoice</Button>
+
+                    className="btn-danger d-block w-100 mt-10">Delete Invoice</Button>
 
                     
 

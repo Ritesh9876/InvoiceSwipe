@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './common.css'
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import InvoiceForm from './components/InvoiceForm';
 import store from './reducers/store';
 import { Provider } from 'react-redux';
 import DisplayInvoices from './components/displayInvoices';
@@ -22,7 +21,6 @@ class App extends Component {
         <Routes>
           <Route exact path="/" element={<DisplayInvoices/>}/>
           <Route exact path="/view" element={<InvoiceDetails/>}/>
-          {/* <Route exact path="/add" element={<InvoiceForm/>}/> */}
           <Route exact path="/edit" element = {<EditInvoice/>}/>
         </Routes>
       </Router>
